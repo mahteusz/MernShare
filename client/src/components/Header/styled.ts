@@ -6,13 +6,15 @@ export const Container = styled.header`
   background-color:${props => props.theme.colors.backgroundSecondary};
   width:100%;
   padding:30px 20px;
-  border:2px solid red;
   justify-content:space-between;
   align-items:center;
 `
 
-export const NavBar = styled.nav`
-
+export const NavItemsContainer = styled.ul`
+  display:flex;
+  align-items:center;
+  gap:150px;
+  justify-content:space-around;
 `
 
 export const NavItem = styled.li`

@@ -1,13 +1,15 @@
 import * as S from './styled'
+import ThemeSwitcher from '../ThemeSwitcher'
 
 const Header = () => {
   return (
     <S.Container>
       <Logo />
       <nav>
-        <ul>
+        <S.NavItemsContainer>
           <S.NavItem>Como funciona</S.NavItem>
-        </ul>
+          <ThemeSwitcher />
+        </S.NavItemsContainer>
       </nav>
     </S.Container>
   )
