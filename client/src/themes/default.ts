@@ -7,7 +7,7 @@ export const defaultThemeProperties = {
       xlarge: "32px",
       large: "28px",
       medium: "22px",
-      small: "16px"
+      small: "18px"
     }
   }
 }

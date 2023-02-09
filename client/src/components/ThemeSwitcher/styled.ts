@@ -35,6 +35,6 @@ export const ToggleSwitchIcon = styled(Icon)<{active:boolean}>`
   color:#F5C105;
   position:relative;
   left:${props => props.active ? "-42px" : "-18px"};
-  top:-4px;
+  top:-2px;
   transition:0.3s ease;
 `

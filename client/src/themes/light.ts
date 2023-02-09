@@ -5,7 +5,7 @@ const lightTheme = {
     secondary: "#E63462",
     backgroundPrimary: "white",
     backgroundSecondary: "#F4EDED",
-    grey: "#0D1821",
+    grey: "#d7d7d7",
     textColor: "black"
   }
 }
