@@ -10,6 +10,18 @@ declare module "styled-components" {
       backgroundSecondary: string,
       grey: string,
       textColor: string
+    },
+    
+    fonts: {
+      primary:string,
+      secondary:string,
+
+      sizes: {
+        xlarge:string,
+        large:string,
+        medium:string,
+        small:string
+      }
     }
   }
 }
