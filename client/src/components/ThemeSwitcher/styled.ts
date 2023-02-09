@@ -5,8 +5,8 @@ export const ToggleSwitch = styled.input.attrs({
   type:"checkbox"
 })`
     appearance:none;
-    width:60px;
-    height:32px;
+    width:45px;
+    height:22px;
     background-color:${props => props.theme.colors.backgroundPrimary};
     border-radius:50px;
     border:0;
@@ -15,26 +15,26 @@ export const ToggleSwitch = styled.input.attrs({
 
     &:before {
       content:"";
-      width:27px;
-      height:27px;
+      width:16px;
+      height:16px;
       background-color:${props => props.theme.colors.grey};
       border-radius:50%;
       position:absolute;
-      top:2px;
-      left:2px;
+      top:3px;
+      left:4px;
       transition:0.3s ease;
     }
 
     &:checked:before {
-      left:31px;
+      left:25px;
     }
 `
 
 export const ToggleSwitchIcon = styled(Icon)<{active:boolean}>`
-  font-size:${props => props.theme.fonts.sizes.medium};
+  font-size:${props => props.theme.fonts.sizes.small};
   color:#F5C105;
   position:relative;
-  left:${props => props.active ? "-55px" : "-26px"};
-  top:-5px;
+  left:${props => props.active ? "-42px" : "-18px"};
+  top:-4px;
   transition:0.3s ease;
 `

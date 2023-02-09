@@ -8,6 +8,7 @@ export const Container = styled.header`
   padding:30px 20px;
   justify-content:space-between;
   align-items:center;
+  transition:background-color 0.3s ease;
 `
 
 export const NavItemsContainer = styled.ul`

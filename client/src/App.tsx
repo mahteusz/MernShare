@@ -1,13 +1,14 @@
 import { ThemeProvider } from "styled-components"
 import themes from '../src/themes'
 import AppRoutes from "./routes"
+import { CustomThemeProvider } from "./contexts/ThemeContext"
 
 const App = () => {
 
   return (
-    <ThemeProvider theme={themes.dark}>
+    <CustomThemeProvider>
       <AppRoutes />
-    </ThemeProvider>
+    </CustomThemeProvider>
   )
 }
 
