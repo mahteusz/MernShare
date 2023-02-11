@@ -29,7 +29,7 @@ export const Subtitle = styled.span`
   margin-bottom:80px;
 `
 
-export const SubmitButton = styled.button`
+export const SubmitButton = styled.button<{disabled:boolean}>`
   border:0;
   background-color:${props => props.theme.colors.primary};
   color:${props => props.theme.colors.backgroundPrimary};
@@ -41,10 +41,22 @@ export const SubmitButton = styled.button`
   padding:10px 25px;
   transition:background-color 0.3s ease;
 
-  &:hover {
-    cursor:pointer;
-    background-color:${props => props.theme.colors.secondary};
-  }
+  ${props => {
+    if(props.disabled) {
+      return `
+        opacity:0.4;
+      `
+    } else {
+      return `
+        &:hover{
+          cursor:pointer;
+          background-color:${props.theme.colors.secondary};
+        }
+      `
+    }
+  }}
+
+  
 `
 
 export const InfoCardContainer = styled.div`

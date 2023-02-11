@@ -1,12 +1,29 @@
 import { useState } from 'react'
 import * as S from './styled'
 import Dropzone from '../Dropzone'
+import axios, { AxiosError } from "axios"
 
 const HomeContent = () => {
   const [file, setFile] = useState<File>()
 
-  const handleSubmit = () => {
-    console.log(file)
+  const handleSubmit = async () => {
+    const formData = new FormData()
+    formData.append("file", JSON.stringify(file))
+    if(file){
+      postFile(formData)
+    }
+  }
+
+  const postFile = async (formData: FormData) => {
+      const response = axios<File>({
+        method:"POST",
+        data: formData,
+        url:"http://localhost:8000/api/files",
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      })
+      console.log(response)
   }
 
   return (
@@ -19,7 +36,10 @@ const HomeContent = () => {
         e enviar para qualquer pessoa.
       </S.Subtitle>
       <Dropzone setFile={setFile}/>
-      <S.SubmitButton onClick={handleSubmit}>
+      <S.SubmitButton 
+        onClick={handleSubmit}
+        disabled={file===undefined}
+        >
         Enviar
       </S.SubmitButton>
       <S.InfoCardContainer>
