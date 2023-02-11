@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Icon } from "@iconify/react";
 
 export const ToggleSwitch = styled.input.attrs({
-  type:"checkbox"
+  type: "checkbox"
 })`
     appearance:none;
     width:45px;
@@ -30,11 +30,11 @@ export const ToggleSwitch = styled.input.attrs({
     }
 `
 
-export const ToggleSwitchIcon = styled(Icon)<{active:boolean}>`
+export const ToggleSwitchIcon = styled(Icon) <{ active: boolean }>`
   font-size:${props => props.theme.fonts.sizes.small};
   color:#F5C105;
   position:relative;
   left:${props => props.active ? "-42px" : "-18px"};
-  top:-4px;
+  top:-2px;
   transition:0.3s ease;
 `

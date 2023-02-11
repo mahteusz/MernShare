@@ -5,7 +5,7 @@ const darkTheme = {
     secondary: "#E63462",
     backgroundPrimary: "#0B0D0E",
     backgroundSecondary: "#0D1821",
-    grey: "#888888",
+    grey: "#333",
     textColor: "white"
   }
 }

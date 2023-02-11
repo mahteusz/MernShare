@@ -5,7 +5,8 @@ export const Container = styled.header`
   display:flex;
   background-color:${props => props.theme.colors.backgroundSecondary};
   width:100%;
-  padding:30px 20px;
+  padding:0 20px;
+  height:10vh;
   justify-content:space-between;
   align-items:center;
   transition:background-color 0.3s ease;

@@ -9,7 +9,7 @@ const ThemeSwitcher = () => {
 
   useEffect(() => {
     console.log(themeData.theme.name)
-    if(themeData.theme.name === "light"){
+    if (themeData.theme.name === "light") {
       setActive(true)
     }
   }, [themeData.loading])
