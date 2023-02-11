@@ -1,10 +1,12 @@
 import express from 'express'
+import cors from 'cors'
 import init from './config'
 import { default as apiRouter } from './routes'
 
 init()
 const app = express()
 
+app.use(cors())
 app.use("/api", apiRouter)
 
 
