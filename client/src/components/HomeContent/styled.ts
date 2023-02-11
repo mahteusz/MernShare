@@ -29,13 +29,31 @@ export const Subtitle = styled.span`
   margin-bottom:80px;
 `
 
+export const SubmitButton = styled.button`
+  border:0;
+  background-color:${props => props.theme.colors.primary};
+  color:${props => props.theme.colors.backgroundPrimary};
+  font-family:${props => props.theme.fonts.primary};
+  font-size:${props => props.theme.fonts.sizes.medium};
+  font-weight:bold;
+  text-align:center;
+  margin-top:40px;
+  padding:10px 25px;
+  transition:background-color 0.3s ease;
+
+  &:hover {
+    cursor:pointer;
+    background-color:${props => props.theme.colors.secondary};
+  }
+`
+
 export const InfoCardContainer = styled.div`
   display:flex;
   gap:30px;
 `
 
 export const InfoCard = styled.div`
-  margin-top:80px;
+  margin-top:40px;
   width:250px;
   justify-content:center;
   display:flex;

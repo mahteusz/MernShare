@@ -1,8 +1,14 @@
-import React from 'react'
+import { useState } from 'react'
 import * as S from './styled'
 import Dropzone from '../Dropzone'
 
 const HomeContent = () => {
+  const [file, setFile] = useState<File>()
+
+  const handleSubmit = () => {
+    console.log(file)
+  }
+
   return (
     <S.Container>
       <S.H1>
@@ -12,7 +18,10 @@ const HomeContent = () => {
         Não é necessário registro! Sinta-se à vontade para fazer upload de arquivos
         e enviar para qualquer pessoa.
       </S.Subtitle>
-      <Dropzone />
+      <Dropzone setFile={setFile}/>
+      <S.SubmitButton onClick={handleSubmit}>
+        Enviar
+      </S.SubmitButton>
       <S.InfoCardContainer>
         <S.InfoCard>
           <S.InfoCardIcon icon={"material-symbols:drive-folder-upload-sharp"}/>
