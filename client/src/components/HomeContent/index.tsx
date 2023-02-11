@@ -7,23 +7,28 @@ const HomeContent = () => {
   const [file, setFile] = useState<File>()
 
   const handleSubmit = async () => {
-    const formData = new FormData()
-    formData.append("file", JSON.stringify(file))
     if(file){
+      const formData = new FormData()
+      formData.append("file", file)
       postFile(formData)
     }
   }
 
   const postFile = async (formData: FormData) => {
-      const response = axios<File>({
-        method:"POST",
-        data: formData,
-        url:"http://localhost:8000/api/files",
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      })
-      console.log(response)
+    try{  
+      const response = await axios<File>({
+          method:"POST",
+          data: formData,
+          url:"http://localhost:8000/api/files",
+          headers: {
+            "Content-Type": "multipart/form-data"
+          }
+        })
+    } catch(error) {
+      if(axios.isAxiosError(error)){
+        console.warn(error.message)
+      }
+    }
   }
 
   return (
