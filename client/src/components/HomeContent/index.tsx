@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import * as S from './styled'
 import Dropzone from '../Dropzone'
-import axios, { AxiosError } from "axios"
+import axios from "axios"
 
 const HomeContent = () => {
   const [file, setFile] = useState<File>()
@@ -17,13 +17,14 @@ const HomeContent = () => {
   const postFile = async (formData: FormData) => {
     try{  
       const response = await axios<File>({
-          method:"POST",
-          data: formData,
-          url:"http://localhost:8000/api/files",
-          headers: {
-            "Content-Type": "multipart/form-data"
-          }
-        })
+        method:"POST",
+        data: formData,
+        url:"http://localhost:8000/api/files",
+        headers: {
+          "Content-Type": "multipart/form-data"
+        }
+      })
+      console.log(response)
     } catch(error) {
       if(axios.isAxiosError(error)){
         console.warn(error.message)
