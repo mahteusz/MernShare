@@ -29,3 +29,12 @@ export const postFile = async (req: Request, res: Response) => {
         res.status(500).json({"message":"General server error on upload"})
     }
 }
+
+export const getFile = async (req: Request, res: Response) => {
+    try {
+        const file = await File.findById(req.params.id)
+        res.status(200).json(file)
+    } catch(error) {
+        res.status(404).json({"message":"File not found"})
+    }
+}
