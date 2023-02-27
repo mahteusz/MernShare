@@ -9,12 +9,21 @@ const Dropzone = ({ setFile }: { setFile: Function} ) => {
 
   const { getRootProps, getInputProps, acceptedFiles } = useDropzone({
     onDrop,
-    multiple: false
+    multiple: false,
+    accept:{
+      'image/png': ['.png'],
+      'image/jpeg': ['.jpeg', '.jpg'],
+      'text/html': ['.html', '.htm'],
+      'text/javascript': ['.js'],
+      'application/json': ['.json'],
+      'audio/mpeg': ['.mp3'],
+      'application/pdf': ['.pdf']
+    }
   })
 
   return (
     <S.Container {...getRootProps()}>
-      <input {...getInputProps()} />
+      <input {...getInputProps()} readOnly/>
       {
         acceptedFiles.length > 0
           ? acceptedFiles.map((file: File) => {
