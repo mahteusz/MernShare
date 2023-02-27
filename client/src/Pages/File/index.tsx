@@ -4,6 +4,7 @@ import Header from '../../components/Header'
 import FileCard from '../../components/FileCard'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import api from '../../services/api'
 
 const File = () => {
   const [fileData, setFileData] = useState<File>()
@@ -16,10 +17,7 @@ const File = () => {
 
   const getFile = async (id: string) => {
     try{  
-      const response = await axios<File>({
-        method:"GET",
-        url:`http://localhost:8000/api/files/${id}`,
-      })
+      const response = await api.get(`api.defaults.baseURL!${id}`)
       setFileData(response.data)
       console.log("response", response)
     } catch(error) {

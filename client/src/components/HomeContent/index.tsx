@@ -2,6 +2,7 @@ import { useState } from 'react'
 import * as S from './styled'
 import Dropzone from '../Dropzone'
 import axios from "axios"
+import api from '../../services/api'
 
 const HomeContent = () => {
   const [file, setFile] = useState<File>()
@@ -16,10 +17,9 @@ const HomeContent = () => {
 
   const postFile = async (formData: FormData) => {
     try{  
-      const response = await axios<File>({
+      const response = await api.request({
         method:"POST",
         data: formData,
-        url:"http://localhost:8000/api/files",
         headers: {
           "Content-Type": "multipart/form-data"
         }
