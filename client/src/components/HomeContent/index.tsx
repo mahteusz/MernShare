@@ -24,7 +24,7 @@ const HomeContent = () => {
           "Content-Type": "multipart/form-data"
         }
       })
-      console.log(response)
+      console.log("response", response)
     } catch(error) {
       if(axios.isAxiosError(error)){
         console.warn(error.message)
