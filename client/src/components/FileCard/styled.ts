@@ -36,23 +36,6 @@ export const FileSize = styled.span`
   text-align:center;
 `
 
-export const Button = styled.button`
-  border:0;
-  background-color:${props => props.theme.colors.primary};
-  color:${props => props.theme.colors.backgroundPrimary};
-  font-family:${props => props.theme.fonts.primary};
-  font-size:${props => props.theme.fonts.sizes.medium};
-  font-weight:bold;
-  text-align:center;
-  padding:10px 25px;
-  transition:background-color 0.3s ease;
-
-  &:hover{
-    cursor:pointer;
-    background-color:${props => props.theme.colors.secondary};
-  }
-`
-
 export const FileIcon = styled(Icon)`
   font-size:128px;
   color:${props => props.theme.colors.secondary};

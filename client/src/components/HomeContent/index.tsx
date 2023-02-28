@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import * as S from './styled'
 import Dropzone from '../Dropzone'
+import Button from '../Button'
 import axios from "axios"
 import api from '../../services/api'
 
@@ -42,12 +43,15 @@ const HomeContent = () => {
         e enviar para qualquer pessoa.
       </S.Subtitle>
       <Dropzone setFile={setFile}/>
-      <S.SubmitButton 
+      <Button
+        text='Enviar'
         onClick={handleSubmit}
-        disabled={file===undefined}
-        >
-        Enviar
-      </S.SubmitButton>
+        styleProps={{
+          disabled: file===undefined,
+          marginTop:40,
+          marginBottom:40
+        }}
+      />
       <S.InfoCardContainer>
         <S.InfoCard>
           <S.InfoCardIcon icon={"material-symbols:drive-folder-upload-sharp"}/>
