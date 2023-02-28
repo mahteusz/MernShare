@@ -2,20 +2,35 @@ import * as S from './styled'
 import { IProps } from './types'
 import Button from '../Button'
 
-const Modal = ({ children }: IProps) => {
+const Modal = ({ open, children, onClose }: IProps) => {
+  
+  const renderContent = () => {
+    return (
+      <S.Container>
+        <S.ContentContainer>
+          {children}
+          <Button 
+            onClick={onClose}
+            text='Fechar'
+            styleProps={{
+                disabled:false,
+                marginTop:40
+              }
+            }
+          />
+        </S.ContentContainer>
+      </S.Container>
+    )
+  }
+
   return (
-    <S.Container>
-      {children}
-      <Button 
-        onClick={() => {}}
-        text='Fechar'
-        styleProps={{
-            disabled:true,
-          }
-        }
-      />
-    </S.Container>
+    <>
+      {
+        open ? renderContent() : null
+      }
+    </>
   )
+
 }
 
 export default Modal

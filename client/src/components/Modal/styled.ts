@@ -1,6 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  position:fixed;
+  left:0;
+  top:0;
+  right:0;
+  bottom:0;
   display:flex;
   flex-direction:column;
   justify-content:center;
@@ -8,7 +13,12 @@ export const Container = styled.div`
   width:100vw;
   height:100vh;
   z-index:10;
-  background-color:white;
+  background-color:rgba(0,0,0,0.7);
+`
+
+export const ContentContainer = styled.div`
+  padding:50px;
+  background-color:${props => props.theme.colors.backgroundPrimary};
 `
 
 export const CloseButton = styled.button`
