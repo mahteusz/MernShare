@@ -1,4 +1,4 @@
-import { useDropzone } from "react-dropzone"
+import { DropEvent, FileRejection, useDropzone } from "react-dropzone"
 import * as S from './styled'
 
 const Dropzone = ({ setFile }: { setFile: Function} ) => {
@@ -7,8 +7,13 @@ const Dropzone = ({ setFile }: { setFile: Function} ) => {
     setFile(files[0])
   }
 
+  const onDropRejected = (files: FileRejection[], event: DropEvent) => {
+    console.log(files)
+  }
+
   const { getRootProps, getInputProps, acceptedFiles } = useDropzone({
     onDrop,
+    onDropRejected,
     multiple: false,
     accept:{
       'image/png': ['.png'],
