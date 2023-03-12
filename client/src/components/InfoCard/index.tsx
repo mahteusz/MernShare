@@ -4,23 +4,30 @@ import * as S from './styled'
 const InfoCard = () => {
   return (
     <S.Container>
-      <S.H1>
-        Ops...
-      </S.H1>
+      <S.HeaderContainer>
+        <S.WarningIcon icon="material-symbols:warning" />
+        <S.HeaderTitle>
+          Ops
+        </S.HeaderTitle>
+      </S.HeaderContainer>
       <S.Subheading>
-        {`Só é possível enviar arquivos de até ${maxFileSize.inMegabytes}MB e com os seguintes formatos:`}
-        <S.FileTypeContainer>
-          {
-            Object.keys(acceptedFileTypes).map(key => {
-              return acceptedFileTypes[key].map(fileType => {
-                return (
-                  <S.FileType>{fileType}</S.FileType>
-                )
-              })
-            })
-          }
-        </S.FileTypeContainer>
+        Só é possível enviar arquivos de até
+        <S.HighlightedText>
+          {` ${maxFileSize.inMegabytes} MB `}
+        </S.HighlightedText>
+        e com os seguintes formatos:
       </S.Subheading>
+      <S.FileTypeContainer>
+        {
+          Object.keys(acceptedFileTypes).map(key => {
+            return acceptedFileTypes[key].map(fileType => {
+              return (
+                <S.FileType>{fileType}</S.FileType>
+              )
+            })
+          })
+        }
+      </S.FileTypeContainer>
     </S.Container>
   )
 }
