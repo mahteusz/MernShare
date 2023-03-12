@@ -41,6 +41,7 @@ export const LogoContainer = styled.div`
   justify-content:center;
   align-items:center;
   transition:transform 0.3s ease;
+  align-self:center;
 
   &:hover {
     cursor:pointer;
