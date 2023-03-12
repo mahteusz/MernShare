@@ -1,12 +1,12 @@
 import { useState } from "react"
-import { DropEvent, FileRejection, useDropzone } from "react-dropzone"
-import { acceptedFileTypes } from "../../shared/fileConstants"
+import { useDropzone } from "react-dropzone"
+import { acceptedFileTypes, maxFileSize } from "../../shared/fileConstants"
 import * as S from './styled'
 import InfoCard from "../InfoCard"
 import Modal from "../Modal"
 
-const Dropzone = ({ setFile }: { setFile: Function} ) => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)  
+const Dropzone = ({ setFile }: { setFile: Function }) => {
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   const onDrop = (files: File[]) => {
     setFile(files[0])
@@ -20,14 +20,15 @@ const Dropzone = ({ setFile }: { setFile: Function} ) => {
     onDrop,
     onDropRejected,
     multiple: false,
-    accept: acceptedFileTypes
+    maxSize: maxFileSize.inBytes,
+    accept: acceptedFileTypes,
   })
 
   return (
     <>
-      <Modal children={<InfoCard />} open={isModalOpen} onClose={() => setIsModalOpen(false)}/>
+      <Modal children={<InfoCard />} open={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <S.Container {...getRootProps()}>
-        <input {...getInputProps()} readOnly/>
+        <input {...getInputProps()} readOnly />
         {
           acceptedFiles.length > 0
             ? acceptedFiles.map((file: File) => {
@@ -38,14 +39,15 @@ const Dropzone = ({ setFile }: { setFile: Function} ) => {
               )
             })
 
-            : <S.Message>
+            :
+            <S.Message>
               Clique aqui ou arraste um arquivo
             </S.Message>
         }
       </S.Container>
     </>
   )
-  
+
 }
 
 export default Dropzone

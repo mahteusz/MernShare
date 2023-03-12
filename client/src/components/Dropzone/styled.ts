@@ -28,4 +28,5 @@ export const Message = styled.span`
 
 export const FileInfo = styled(Message)`
   color:${props => props.theme.colors.primary};
+  word-break:break-all;
 `
