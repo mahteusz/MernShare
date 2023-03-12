@@ -1,4 +1,5 @@
 import { DropEvent, FileRejection, useDropzone } from "react-dropzone"
+import { acceptedFileTypes } from "../../shared/fileConstants"
 import * as S from './styled'
 
 const Dropzone = ({ setFile }: { setFile: Function} ) => {
@@ -15,15 +16,7 @@ const Dropzone = ({ setFile }: { setFile: Function} ) => {
     onDrop,
     onDropRejected,
     multiple: false,
-    accept:{
-      'image/png': ['.png'],
-      'image/jpeg': ['.jpeg', '.jpg'],
-      'text/html': ['.html', '.htm'],
-      'text/javascript': ['.js'],
-      'application/json': ['.json'],
-      'audio/mpeg': ['.mp3'],
-      'application/pdf': ['.pdf']
-    }
+    accept: acceptedFileTypes
   })
 
   return (

@@ -7,7 +7,7 @@ import api from '../../services/api'
 
 const HomeContent = () => {
   const [file, setFile] = useState<File>()
-
+  
   const handleSubmit = async () => {
     if(file){
       const formData = new FormData()
@@ -38,10 +38,10 @@ const HomeContent = () => {
       <S.H1>
         Compartilhe arquivos de forma fácil e prática!
       </S.H1>
-      <S.Subtitle>
+      <S.Subheading>
         Não é necessário registro! Sinta-se à vontade para fazer upload de arquivos
         e enviar para qualquer pessoa.
-      </S.Subtitle>
+      </S.Subheading>
       <Dropzone setFile={setFile}/>
       <Button
         text='Enviar'

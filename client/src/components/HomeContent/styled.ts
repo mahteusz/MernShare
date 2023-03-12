@@ -20,7 +20,7 @@ export const H1 = styled.h1`
   margin-bottom:15px;
 `
 
-export const Subtitle = styled.span`
+export const Subheading = styled.span`
   color:${props => props.theme.colors.textColor};
   font-family:${props => props.theme.fonts.secondary};
   font-size:${props => props.theme.fonts.sizes.medium};
