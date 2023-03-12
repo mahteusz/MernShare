@@ -12,7 +12,7 @@ const Dropzone = ({ setFile }: { setFile: Function} ) => {
     setFile(files[0])
   }
 
-  const onDropRejected = (files: FileRejection[], event: DropEvent) => {
+  const onDropRejected = () => {
     setIsModalOpen(true)
   }
 
@@ -24,25 +24,28 @@ const Dropzone = ({ setFile }: { setFile: Function} ) => {
   })
 
   return (
-    <S.Container {...getRootProps()}>
+    <>
       <Modal children={<InfoCard />} open={isModalOpen} onClose={() => setIsModalOpen(false)}/>
-      <input {...getInputProps()} readOnly/>
-      {
-        acceptedFiles.length > 0
-          ? acceptedFiles.map((file: File) => {
-            return (
-              <S.FileInfo>
-                {`${file.name} - ${(file.size / (1024 * 1024)).toFixed(2)}MB`}
-              </S.FileInfo>
-            )
-          })
+      <S.Container {...getRootProps()}>
+        <input {...getInputProps()} readOnly/>
+        {
+          acceptedFiles.length > 0
+            ? acceptedFiles.map((file: File) => {
+              return (
+                <S.FileInfo>
+                  {`${file.name} - ${(file.size / (1024 * 1024)).toFixed(2)}MB`}
+                </S.FileInfo>
+              )
+            })
 
-          : <S.Message>
-            Clique aqui ou arraste um arquivo
-          </S.Message>
-      }
-    </S.Container>
+            : <S.Message>
+              Clique aqui ou arraste um arquivo
+            </S.Message>
+        }
+      </S.Container>
+    </>
   )
+  
 }
 
 export default Dropzone

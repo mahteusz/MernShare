@@ -8,6 +8,9 @@ const Modal = ({ open, children, onClose }: IProps) => {
     return (
       <S.Container>
         <S.ContentContainer>
+          <S.CloseButton onClick={onClose}>
+            <S.CloseButtonIcon />
+          </S.CloseButton>
           {children}
           <Button 
             onClick={onClose}

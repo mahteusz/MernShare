@@ -5,7 +5,7 @@ const InfoCard = () => {
   return (
     <S.Container>
       <S.HeaderContainer>
-        <S.WarningIcon icon="material-symbols:warning" />
+        <S.WarningIcon />
         <S.HeaderTitle>
           Ops
         </S.HeaderTitle>

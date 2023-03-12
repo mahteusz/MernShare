@@ -50,7 +50,10 @@ export const FileType = styled.li`
   list-style:none;
 `
 
-export const WarningIcon = styled(Icon)`
+export const WarningIcon = styled(Icon).attrs(() => ({
+  icon:'material-symbols:warning'
+}))
+`
   font-size:48px;
   color:${props => props.theme.colors.secondary};
 `
