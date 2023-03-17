@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display:flex;
+  max-width:90%;
   flex-direction:column;
   justify-content:center;
   padding:90px 45px;
@@ -15,6 +16,11 @@ export const Container = styled.div`
   &:hover {
     cursor:pointer;
   }
+
+  @media (max-width: 768px) {
+    padding:60px 20px;
+  }
+  
 `
 
 export const Message = styled.span`
@@ -23,7 +29,10 @@ export const Message = styled.span`
   font-size:${props => props.theme.fonts.sizes.medium};
   font-weight:normal;
   text-align:center;
-  max-width:90%;
+
+  @media (max-width: 768px) {
+    font-size:${props => props.theme.fonts.sizes.small};
+  }
 `
 
 export const FileInfo = styled(Message)`

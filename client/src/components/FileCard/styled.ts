@@ -6,7 +6,7 @@ export const Container = styled.div`
   display:flex;
   flex-direction:column;
   align-items:center;
-  padding:110px 200px;
+  padding:100px 0;
   width:100%;
   height:90vh;
   transition:background-color 0.3s ease;
@@ -14,6 +14,7 @@ export const Container = styled.div`
 
 export const FileCard = styled.div`
   display:flex;
+  max-width:90%;
   flex-direction:column;
   justify-content:center;
   padding:50px 80px;

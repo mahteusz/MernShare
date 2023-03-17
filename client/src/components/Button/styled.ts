@@ -11,6 +11,10 @@ export const Button = styled.button<IStyleProps>`
   text-align:center;
   padding:10px 25px;
   transition:background-color 0.3s ease;
+  margin-top:${props => props.marginTop}px;
+  margin-right:${props => props.marginRight}px;
+  margin-bottom:${props => props.marginBottom}px;
+  margin-left:${props => props.marginLeft}px;
 
   ${props => {
     if (props.disabled) {
@@ -25,16 +29,5 @@ export const Button = styled.button<IStyleProps>`
         }
       `
     }
-  }}
-
-  ${props => {
-    if(props.marginTop)
-      return `margin-top:${props.marginTop}px`
-    if(props.marginRight)
-      return `margin-right:${props.marginRight}px`
-    if(props.marginBottom)
-      return `margin-bottom:${props.marginBottom}px`
-    if(props.marginLeft)
-      return `margin-left:${props.marginLeft}px`
   }}
 `

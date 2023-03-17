@@ -6,18 +6,27 @@ export const Container = styled.main`
   display:flex;
   flex-direction:column;
   align-items:center;
-  padding:110px 200px;
+  padding-top:100px;
   width:100%;
-  height:90vh;
+  min-height:90vh;
   transition:background-color 0.3s ease;
+
+  @media (max-width: 900px) {
+    padding:100px 20px 0;
+  }
 `
 
 export const H1 = styled.h1`
   color:${props => props.theme.colors.textColor};
+  text-align:center;
   font-family:${props => props.theme.fonts.primary};
   font-size:${props => props.theme.fonts.sizes.xlarge};
   font-weight:bold;  
   margin-bottom:15px;
+
+  @media (max-width: 768px) {
+    font-size:${props => props.theme.fonts.sizes.medium};
+  }
 `
 
 export const Subheading = styled.span`
@@ -27,15 +36,22 @@ export const Subheading = styled.span`
   max-width:700px;
   text-align:center;
   margin-bottom:80px;
+
+  @media (max-width: 768px) {
+    font-size:${props => props.theme.fonts.sizes.small};
+  }
 `
 
 export const InfoCardContainer = styled.div`
   display:flex;
+  width:90%;
+  justify-content:center;
+  flex-wrap:wrap;
   gap:30px;
+  margin-bottom:30px;
 `
 
 export const InfoCard = styled.div`
-  margin-top:40px;
   width:250px;
   justify-content:center;
   display:flex;

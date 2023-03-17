@@ -6,10 +6,10 @@ const Button = ({ text, onClick, styleProps }: IProps) => {
     <S.Button 
       disabled={styleProps.disabled}
       onClick={onClick}
-      marginTop={styleProps?.marginTop}
-      marginRight={styleProps?.marginRight}
-      marginBottom={styleProps?.marginBottom}
-      marginLeft={styleProps?.marginLeft}
+      marginTop={styleProps?.marginTop ?? 0}
+      marginRight={styleProps?.marginRight ?? 0}
+      marginBottom={styleProps?.marginBottom ?? 0}
+      marginLeft={styleProps?.marginLeft ?? 0}
     >
       {text}
     </S.Button>
