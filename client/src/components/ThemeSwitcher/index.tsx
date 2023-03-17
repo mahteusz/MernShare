@@ -22,16 +22,15 @@ const ThemeSwitcher = () => {
   }
 
   return (
-    <div>
+    <S.Container onClick={handleToggle}>
       <S.ToggleSwitch
-        onClick={handleToggle}
         checked={active}
       />
       <S.ToggleSwitchIcon
         icon={active ? "ph:sun-fill" : "ph:moon-fill"}
         active={active}
       />
-    </div>
+    </S.Container>
   )
 }
 

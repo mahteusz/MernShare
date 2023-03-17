@@ -7,7 +7,6 @@ const Header = () => {
       <Logo />
       <nav>
         <S.NavItemsContainer>
-          <S.NavItem>Como funciona</S.NavItem>
           <ThemeSwitcher />
         </S.NavItemsContainer>
       </nav>

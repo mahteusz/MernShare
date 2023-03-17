@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import { Icon } from "@iconify/react";
 
+export const Container = styled.div`
+  &:hover {
+    cursor:pointer;
+  }
+`
+
 export const ToggleSwitch = styled.input.attrs({
   type: "checkbox"
 })`
@@ -35,6 +41,7 @@ export const ToggleSwitchIcon = styled(Icon) <{ active: boolean }>`
   color:#F5C105;
   position:relative;
   left:${props => props.active ? "-42px" : "-18px"};
+  margin-right:-25px;
   top:-2px;
   transition:0.3s ease;
 `

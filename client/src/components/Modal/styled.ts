@@ -1,3 +1,4 @@
+import { Icon } from "@iconify/react";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -18,23 +19,34 @@ export const Container = styled.div`
 
 export const ContentContainer = styled.div`
   padding:50px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
   background-color:${props => props.theme.colors.backgroundPrimary};
+  position:relative;
 `
 
 export const CloseButton = styled.button`
-  border:0;
-  background-color:${props => props.theme.colors.primary};
-  color:${props => props.theme.colors.backgroundPrimary};
-  font-family:${props => props.theme.fonts.primary};
-  font-size:${props => props.theme.fonts.sizes.medium};
-  font-weight:bold;
-  text-align:center;
-  padding:10px 25px;
-  transition:background-color 0.3s ease;
+  position:absolute;
+  right:0;
+  top:0;
+  background-color:${props => props.theme.colors.backgroundPrimary};
+  border:none;
 
-  &:hover{
+  &:hover {
     cursor:pointer;
-    background-color:${props => props.theme.colors.secondary};
   }
 `
+
+export const CloseButtonIcon = styled(Icon).attrs(() => ({
+  icon:'material-symbols:close'
+}))
+`
+  font-size:48px;
+  color:${props => props.theme.colors.secondary};
+`
+
+
+
 

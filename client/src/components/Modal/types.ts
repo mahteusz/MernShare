@@ -1,7 +1,7 @@
 interface IProps {
   open: boolean,
   children: React.ReactNode,
-  onClose: React.MouseEventHandler
+  onClose: () => void
 }
 
 export { type IProps }
