@@ -3,7 +3,7 @@ import * as S from './styled'
 import Dropzone from '../Dropzone'
 import Button from '../Button'
 import axios from "axios"
-import api from '../../services/api'
+import fileApi from '../../services/api/File'
 
 const HomeContent = () => {
   const [file, setFile] = useState<File>()
@@ -18,13 +18,7 @@ const HomeContent = () => {
 
   const postFile = async (formData: FormData) => {
     try{  
-      const response = await api.request({
-        method:"POST",
-        data: formData,
-        headers: {
-          "Content-Type": "multipart/form-data"
-        }
-      })
+      const response = await fileApi.createFile(formData)
       console.log("response", response)
     } catch(error) {
       if(axios.isAxiosError(error)){
