@@ -4,7 +4,7 @@ import Header from '../../components/Header'
 import FileCard from '../../components/FileCard'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import api from '../../services/api'
+import fileApi from '../../services/api/File'
 
 const File = () => {
   const [fileData, setFileData] = useState<File>()
@@ -17,9 +17,9 @@ const File = () => {
 
   const getFile = async (id: string) => {
     try{  
-      const response = await api.get(`api.defaults.baseURL!${id}`)
-      setFileData(response.data)
-      console.log("response", response)
+      const data = await fileApi.getFile(id)
+      setFileData(data)
+      console.log("data", data)
     } catch(error) {
       if(axios.isAxiosError(error)){
         console.warn(error.message)
