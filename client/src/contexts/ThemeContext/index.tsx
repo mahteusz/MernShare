@@ -1,11 +1,11 @@
-import { createContext, useState, useCallback, useEffect } from "react";
-import { IThemeContextData, IThemeProviderData } from './types'
+import { createContext, useState, useEffect } from "react";
+import { ThemeContextData, ThemeProviderData } from './types'
 import { DefaultTheme, ThemeProvider } from "styled-components";
 import themes from "../../themes";
 
-const ThemeContext = createContext<IThemeContextData>({} as IThemeContextData)
+const ThemeContext = createContext<ThemeContextData>({} as ThemeContextData)
 
-const CustomThemeProvider = ({ children }: IThemeProviderData) => {
+const CustomThemeProvider = ({ children }: ThemeProviderData) => {
   const [theme, setTheme] = useState<DefaultTheme>(themes.dark)
   const [loading, setLoading] = useState<boolean>(true)
 
@@ -17,7 +17,7 @@ const CustomThemeProvider = ({ children }: IThemeProviderData) => {
     setLoading(false)
   }, [])
 
-  const toggleTheme = useCallback(() => {
+  const toggleTheme = () => {
     let newTheme = theme 
     if (theme.name === 'dark'){
       newTheme = themes.light
@@ -27,9 +27,8 @@ const CustomThemeProvider = ({ children }: IThemeProviderData) => {
       newTheme = themes.dark
       setTheme(newTheme)
     }
-
     localStorage.setItem("theme", JSON.stringify(newTheme))
-  }, [theme])
+  }
 
   return (
     <ThemeContext.Provider value={{ theme, loading, toggleTheme }}>

@@ -1,8 +1,8 @@
 import * as S from './styled'
-import { IProps } from './types'
+import { Props } from './types'
 import Button from '../Button'
 
-const Modal = ({ open, children, onClose }: IProps) => {
+const Modal = ({ open, children, onClose }: Props) => {
   
   const renderContent = () => {
     return (

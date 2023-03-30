@@ -1,13 +1,13 @@
 import { DefaultTheme } from "styled-components";
 
-interface IThemeContextData {
+type ThemeContextData = {
   theme: DefaultTheme,
   loading: boolean,
   toggleTheme(): void,
 }
 
-interface IThemeProviderData {
+type ThemeProviderData = {
   children: React.ReactNode
 }
 
-export { type IThemeContextData, type IThemeProviderData }
+export { type ThemeContextData, type ThemeProviderData }

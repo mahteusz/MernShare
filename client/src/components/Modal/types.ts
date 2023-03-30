@@ -1,7 +1,7 @@
-interface IProps {
+type Props = {
   open: boolean,
   children: React.ReactNode,
   onClose: () => void
 }
 
-export { type IProps }
+export { type Props }
