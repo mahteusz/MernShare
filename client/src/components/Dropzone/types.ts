@@ -1,5 +1,5 @@
 type Props = {
-  setFile: void
+  setFileData: (file: File) => void
 }
 
 export { type Props as default }

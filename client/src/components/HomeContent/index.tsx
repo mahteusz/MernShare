@@ -6,12 +6,12 @@ import axios from "axios"
 import fileApi from '../../services/api/File'
 
 const HomeContent = () => {
-  const [file, setFile] = useState<File>()
+  const [fileData, setFileData] = useState<File>()
   
   const handleSubmit = async () => {
-    if(file){
+    if(fileData){
       const formData = new FormData()
-      formData.append("file", file)
+      formData.append("file", fileData)
       postFile(formData)
     }
   }
@@ -36,12 +36,12 @@ const HomeContent = () => {
         Não é necessário registro! Sinta-se à vontade para fazer upload de arquivos
         e enviar para qualquer pessoa.
       </S.Subheading>
-      <Dropzone setFile={setFile}/>
+      <Dropzone setFileData={setFileData}/>
       <Button
         text='Enviar'
         onClick={handleSubmit}
         styleProps={{
-          disabled: file===undefined,
+          disabled: fileData===undefined,
           marginTop:40,
           marginBottom:40
         }}

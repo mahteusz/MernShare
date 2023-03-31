@@ -5,33 +5,41 @@ import FileCard from '../../components/FileCard'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 import fileApi from '../../services/api/File'
+import { CustomFile } from '../../services/api'
 
 const File = () => {
-  const [fileData, setFileData] = useState<File>()
+  const [file, setFile] = useState<CustomFile>()
   const { id } = useParams()
-  
+
   useEffect(() => {
-    if(id)
+    if (id)
       getFile(id)
   }, [])
 
   const getFile = async (id: string) => {
-    try{  
-      const data = await fileApi.getFile(id)
-      setFileData(data)
-      console.log("data", data)
-    } catch(error) {
-      if(axios.isAxiosError(error)){
+    try {
+      const fileData = await fileApi.getFile(id)
+      setFile(fileData)
+      console.log("data", fileData)
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
         console.warn(error.message)
       }
     }
   }
 
   return (
-    <S.Container>
-      <Header />
-      <FileCard />
-    </S.Container>
+    <>
+      {
+        file ?
+          <S.Container>
+            <Header />
+            <FileCard file={file} />
+          </S.Container>
+          :
+          <></>
+      }
+    </>
   )
 }
 

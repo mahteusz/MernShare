@@ -1,24 +1,44 @@
+import { useRef } from 'react'
 import Button from '../Button'
 import * as S from './styled'
+import Props from './types'
+import axios from 'axios'
 
-const FileCard = () => {
+const FileCard = ({ file }: Props) => {
+
+  const anchorRef = useRef<HTMLAnchorElement>(null)
+
+  const handleDownload = async () => {
+    const newFile = await axios.get(file.url, { responseType: 'blob' })
+    const fileUrl = window.URL.createObjectURL(newFile.data)
+    const anchor = anchorRef.current
+    if (anchor) {
+      anchor.href = fileUrl;
+      anchor.download = file.name
+      anchor.click()
+    }
+    // alink.download = 'SamplePDF.pdf';
+    // alink.click();
+  }
+
   return (
     <S.Container>
       <S.FileCard>
         <S.FileIcon icon={'bxs:file-png'} />
         <S.FileName>
-          image.png
+          {file.name}
         </S.FileName>
         <S.FileSize>
-          931.12 KB
+          {`${(file.sizeInBytes / (1024 * 1024)).toFixed(2)}MB`}
         </S.FileSize>
         <Button
           text='Download'
-          onClick={() => {}}
+          onClick={handleDownload}
           styleProps={{
-            disabled:false
+            disabled: false
           }}
         />
+        <a href="#" ref={anchorRef} />
       </S.FileCard>
     </S.Container>
   )

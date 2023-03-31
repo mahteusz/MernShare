@@ -4,12 +4,13 @@ import { acceptedFileTypes, maxFileSize } from "../../shared/fileConstants"
 import * as S from './styled'
 import InfoCard from "../InfoCard"
 import Modal from "../Modal"
+import Props from './types'
 
-const Dropzone = ({ setFile }: { setFile: Function }) => {
+const Dropzone = ({ setFileData }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
 
   const onDrop = (files: File[]) => {
-    setFile(files[0])
+    setFileData(files[0])
   }
 
   const onDropRejected = () => {
