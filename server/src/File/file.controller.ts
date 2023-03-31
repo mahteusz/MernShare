@@ -12,7 +12,7 @@ export const postFile = async (req: Request, res: Response) => {
                 const cloudService: ICloudService = new CloudinaryService(req.file.path, "MERNSHARE")
                 const uploadedFile = await cloudService.upload()
                 const newFile: IFile = await File.create({
-                    fileName: req.file.originalname,
+                    name: req.file.originalname,
                     url: uploadedFile.secure_url, 
                     format: uploadedFile.format,
                     sizeInBytes: uploadedFile.bytes
