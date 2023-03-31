@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import Button from '../Button'
 import * as S from './styled'
+import ContentContainer from '../../styled/ContentContainer'
 import Props from './types'
 import axios from 'axios'
 
@@ -17,14 +18,12 @@ const FileCard = ({ file }: Props) => {
       anchor.download = file.name
       anchor.click()
     }
-    // alink.download = 'SamplePDF.pdf';
-    // alink.click();
   }
 
   return (
-    <S.Container>
+    <ContentContainer>
       <S.FileCard>
-        <S.FileIcon icon={'bxs:file-png'} />
+        <S.FileIcon icon={`bxs:file-${file.format}`} />
         <S.FileName>
           {file.name}
         </S.FileName>
@@ -38,9 +37,9 @@ const FileCard = ({ file }: Props) => {
             disabled: false
           }}
         />
-        <a href="#" ref={anchorRef} />
+        <a ref={anchorRef} />
       </S.FileCard>
-    </S.Container>
+    </ContentContainer>
   )
 }
 

@@ -1,17 +1,6 @@
 import { Icon } from "@iconify/react";
 import styled from "styled-components";
 
-export const Container = styled.div`
-  background-color:${props => props.theme.colors.backgroundPrimary};
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  padding:100px 0;
-  width:100%;
-  height:90vh;
-  transition:background-color 0.3s ease;
-`
-
 export const FileCard = styled.div`
   display:flex;
   max-width:90%;
@@ -28,6 +17,7 @@ export const FileName = styled.span`
   font-family:${props => props.theme.fonts.secondary};
   font-size:${props => props.theme.fonts.sizes.large};
   text-align:center;
+  max-width:300px;
 `
 
 export const FileSize = styled.span`

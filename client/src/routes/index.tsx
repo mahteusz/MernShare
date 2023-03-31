@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "../Pages/Home";
 import File from "../Pages/File";
-import InfoCard from "../components/InfoCard";
-import Modal from "../components/Modal";
+import NotFound from "../Pages/NotFound";
+
 
 const AppRoutes = () => {
   return (
@@ -10,6 +10,7 @@ const AppRoutes = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/file/:id" element={<File />} />
+        <Route path="/not-found" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   )

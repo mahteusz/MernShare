@@ -1,4 +1,5 @@
 import { acceptedFileTypes, maxFileSize } from '../../shared/fileConstants'
+import Subheading from '../../styled/Subheading'
 import * as S from './styled'
 
 const InfoCard = () => {
@@ -10,13 +11,13 @@ const InfoCard = () => {
           Ops
         </S.HeaderTitle>
       </S.HeaderContainer>
-      <S.Subheading>
+      <Subheading>
         Só é possível enviar arquivos de até
         <S.HighlightedText>
           {` ${maxFileSize.inMegabytes} MB `}
         </S.HighlightedText>
         e com os seguintes formatos:
-      </S.Subheading>
+      </Subheading>
       <S.FileTypeContainer>
         {
           Object.keys(acceptedFileTypes).map(key => {
