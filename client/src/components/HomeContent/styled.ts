@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import styled from "styled-components";
+import Subheading from "../../styled/Subheading";
 
 export const Container = styled.main`
   background-color:${props => props.theme.colors.backgroundPrimary};
@@ -16,30 +17,8 @@ export const Container = styled.main`
   }
 `
 
-export const H1 = styled.h1`
-  color:${props => props.theme.colors.textColor};
-  text-align:center;
-  font-family:${props => props.theme.fonts.primary};
-  font-size:${props => props.theme.fonts.sizes.xlarge};
-  font-weight:bold;  
-  margin-bottom:15px;
-
-  @media (max-width: 768px) {
-    font-size:${props => props.theme.fonts.sizes.medium};
-  }
-`
-
-export const Subheading = styled.span`
-  color:${props => props.theme.colors.textColor};
-  font-family:${props => props.theme.fonts.secondary};
-  font-size:${props => props.theme.fonts.sizes.medium};
-  max-width:700px;
-  text-align:center;
-  margin-bottom:80px;
-
-  @media (max-width: 768px) {
-    font-size:${props => props.theme.fonts.sizes.small};
-  }
+export const CustomSubheading = styled(Subheading) `
+  margin-bottom:40px;
 `
 
 export const InfoCardContainer = styled.div`

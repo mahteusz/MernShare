@@ -1,30 +1,31 @@
 import { useState, useEffect } from 'react'
-import * as S from './styled'
 import Header from '../../components/Header'
 import FileCard from '../../components/FileCard'
-import { useParams } from 'react-router-dom'
-import axios from 'axios'
+import Container from '../../styled/Container'
+import { useNavigate, useParams } from 'react-router-dom'
 import fileApi from '../../services/api/File'
 import { CustomFile } from '../../services/api'
 
 const File = () => {
   const [file, setFile] = useState<CustomFile>()
   const { id } = useParams()
+  const navigate = useNavigate()
 
   useEffect(() => {
-    if (id)
+    if(id)
       getFile(id)
   }, [])
+
+  const handleNavigation = () => {
+    navigate("/not-found")
+  }
 
   const getFile = async (id: string) => {
     try {
       const fileData = await fileApi.getFile(id)
       setFile(fileData)
-      console.log("data", fileData)
     } catch (error) {
-      if (axios.isAxiosError(error)) {
-        console.warn(error.message)
-      }
+      handleNavigation()
     }
   }
 
@@ -32,10 +33,10 @@ const File = () => {
     <>
       {
         file ?
-          <S.Container>
+          <Container>
             <Header />
             <FileCard file={file} />
-          </S.Container>
+          </Container>
           :
           <></>
       }

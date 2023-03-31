@@ -1,17 +1,6 @@
 import { Icon } from "@iconify/react";
 import styled from "styled-components";
 
-export const Container = styled.div`
-  background-color:${props => props.theme.colors.backgroundPrimary};
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  padding:100px 0;
-  width:100%;
-  min-height:90vh;
-  transition:background-color 0.3s ease;
-`
-
 export const FileCard = styled.div`
   display:flex;
   max-width:90%;

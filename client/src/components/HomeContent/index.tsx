@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import * as S from './styled'
+import ContentContainer from '../../styled/ContentContainer'
+import Subheading from '../../styled/Subheading'
+import H1 from '../../styled/Heading'
 import Dropzone from '../Dropzone'
 import Button from '../Button'
 import axios from "axios"
@@ -28,14 +31,14 @@ const HomeContent = () => {
   }
 
   return (
-    <S.Container>
-      <S.H1>
+    <ContentContainer>
+      <H1>
         Compartilhe arquivos de forma fácil e prática!
-      </S.H1>
-      <S.Subheading>
+      </H1>
+      <S.CustomSubheading>
         Não é necessário registro! Sinta-se à vontade para fazer upload de arquivos
         e enviar para qualquer pessoa.
-      </S.Subheading>
+      </S.CustomSubheading>
       <Dropzone setFileData={setFileData}/>
       <Button
         text='Enviar'
@@ -81,7 +84,7 @@ const HomeContent = () => {
           </S.InfoCardDataContainer>
         </S.InfoCard>
       </S.InfoCardContainer>
-    </S.Container>
+    </ContentContainer>
   )
 }
 

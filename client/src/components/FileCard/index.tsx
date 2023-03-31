@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import Button from '../Button'
 import * as S from './styled'
+import ContentContainer from '../../styled/ContentContainer'
 import Props from './types'
 import axios from 'axios'
 
@@ -20,7 +21,7 @@ const FileCard = ({ file }: Props) => {
   }
 
   return (
-    <S.Container>
+    <ContentContainer>
       <S.FileCard>
         <S.FileIcon icon={`bxs:file-${file.format}`} />
         <S.FileName>
@@ -38,7 +39,7 @@ const FileCard = ({ file }: Props) => {
         />
         <a ref={anchorRef} />
       </S.FileCard>
-    </S.Container>
+    </ContentContainer>
   )
 }
 

@@ -23,13 +23,6 @@ export const HeaderTitle = styled.h1`
   margin:10px 0;
 `
 
-export const Subheading = styled.span`
-  color:${props => props.theme.colors.textColor};
-  font-family:${props => props.theme.fonts.secondary};
-  font-size:${props => props.theme.fonts.sizes.medium};
-  text-align:center;
-`
-
 export const HighlightedText = styled.span`
   font-weight:bold;
   color:${props => props.theme.colors.secondary};

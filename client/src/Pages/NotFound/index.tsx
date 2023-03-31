@@ -1,14 +1,14 @@
 import Header from '../../components/Header'
-import HomeContent from '../../components/HomeContent'
+import NotFoundContent from '../../components/NotFoundContent'
 import Container from '../../styled/Container'
 
-const Home = () => {
+const NotFound = () => {
   return (
     <Container>
       <Header />
-      <HomeContent />
+      <NotFoundContent />
     </Container>
   )
 }
 
-export default Home
+export default NotFound
