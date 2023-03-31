@@ -1,10 +1,8 @@
 const acceptedFileTypes: {[key: string]: string[]} = {
   'image/png': ['.png'],
-  'image/jpeg': ['.jpeg', '.jpg'],
+  'image/jpeg': ['.jpg', '.jpeg'],
   'text/html': ['.html', '.htm'],
   'text/javascript': ['.js'],
-  'application/json': ['.json'],
-  'audio/mpeg': ['.mp3'],
   'application/pdf': ['.pdf']
 }
 
