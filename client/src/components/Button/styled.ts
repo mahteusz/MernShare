@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { IStyleProps } from "./types";
+import { StyleProps } from "./types";
 
-export const Button = styled.button<IStyleProps>`
+export const Button = styled.button<StyleProps>`
   border:0;
   background-color:${props => props.theme.colors.primary};
   color:${props => props.theme.colors.backgroundPrimary};

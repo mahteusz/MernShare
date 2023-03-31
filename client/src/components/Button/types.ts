@@ -1,10 +1,10 @@
-interface IProps {
+type Props = {
   text: string,
   onClick: React.MouseEventHandler,
-  styleProps: IStyleProps
+  styleProps: StyleProps
 }
 
-interface IStyleProps {
+type StyleProps = {
   disabled: boolean,
   marginTop?: number,
   marginRight?: number,
@@ -12,4 +12,4 @@ interface IStyleProps {
   marginLeft?: number
 }
 
-export { type IProps, type IStyleProps }
+export { type Props, type StyleProps }

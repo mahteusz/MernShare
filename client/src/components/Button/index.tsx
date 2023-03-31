@@ -1,7 +1,7 @@
 import * as S from './styled'
-import { IProps } from './types'
+import { Props } from './types'
 
-const Button = ({ text, onClick, styleProps }: IProps) => {
+const Button = ({ text, onClick, styleProps }: Props) => {
   return (
     <S.Button 
       disabled={styleProps.disabled}
