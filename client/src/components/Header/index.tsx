@@ -1,5 +1,6 @@
 import * as S from './styled'
 import ThemeSwitcher from '../ThemeSwitcher'
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
   return (
@@ -15,8 +16,13 @@ const Header = () => {
 }
 
 const Logo = () => {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate('/')
+  }
   return (
-    <S.LogoContainer>
+    <S.LogoContainer onClick={handleClick}>
       <S.LogoIcon
         icon={"material-symbols:file-copy-sharp"}
       />
