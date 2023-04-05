@@ -10,9 +10,10 @@ import fileApi from '../../services/api/File'
 
 const HomeContent = () => {
   const [fileData, setFileData] = useState<File>()
-  
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+
   const handleSubmit = async () => {
-    if(fileData){
+    if (fileData) {
       const formData = new FormData()
       formData.append("file", fileData)
       postFile(formData)
@@ -20,13 +21,18 @@ const HomeContent = () => {
   }
 
   const postFile = async (formData: FormData) => {
-    try{  
+    setIsLoading(true)
+    try {
       const response = await fileApi.createFile(formData)
       console.log("response", response)
-    } catch(error) {
-      if(axios.isAxiosError(error)){
+    }
+    catch (error) {
+      if (axios.isAxiosError(error)) {
         console.warn(error.message)
       }
+    }
+    finally {
+      setIsLoading(false)
     }
   }
 
@@ -39,19 +45,19 @@ const HomeContent = () => {
         Não é necessário registro! Sinta-se à vontade para fazer upload de arquivos
         e enviar para qualquer pessoa.
       </S.CustomSubheading>
-      <Dropzone setFileData={setFileData}/>
+      <Dropzone setFileData={setFileData} />
       <Button
-        text='Enviar'
+        text={isLoading ? "Carregando..." : "Enviar"}
         onClick={handleSubmit}
         styleProps={{
-          disabled: fileData===undefined,
-          marginTop:40,
-          marginBottom:40
+          disabled: fileData === undefined || isLoading,
+          marginTop: 40,
+          marginBottom: 40
         }}
       />
       <S.InfoCardContainer>
         <S.InfoCard>
-          <S.InfoCardIcon icon={"material-symbols:drive-folder-upload-sharp"}/>
+          <S.InfoCardIcon icon={"material-symbols:drive-folder-upload-sharp"} />
           <S.InfoCardDataContainer>
             <S.InfoCardDataValue>
               645
@@ -62,7 +68,7 @@ const HomeContent = () => {
           </S.InfoCardDataContainer>
         </S.InfoCard>
         <S.InfoCard>
-          <S.InfoCardIcon icon={"material-symbols:sim-card-download-sharp"}/>
+          <S.InfoCardIcon icon={"material-symbols:sim-card-download-sharp"} />
           <S.InfoCardDataContainer>
             <S.InfoCardDataValue>
               248
@@ -73,7 +79,7 @@ const HomeContent = () => {
           </S.InfoCardDataContainer>
         </S.InfoCard>
         <S.InfoCard>
-          <S.InfoCardIcon icon={"material-symbols:cloud-done-rounded"}/>
+          <S.InfoCardIcon icon={"material-symbols:cloud-done-rounded"} />
           <S.InfoCardDataContainer>
             <S.InfoCardDataValue>
               942MB
