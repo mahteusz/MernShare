@@ -22,7 +22,7 @@ const Modal = ({ open, children, onClose }: Props) => {
 
   const renderContent = () => {
     return (
-      <S.Container onClick={onClose}>
+      <S.Container>
         <S.ContentContainer>
           <S.CloseButton onClick={onClose}>
             <S.CloseButtonIcon />
