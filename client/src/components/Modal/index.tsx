@@ -1,12 +1,28 @@
+import { useEffect } from 'react'
 import * as S from './styled'
 import { Props } from './types'
 import Button from '../Button'
 
 const Modal = ({ open, children, onClose }: Props) => {
   
+  useEffect(() => {
+    if(open)
+      disableBodyScroll()
+    else
+      enableBodyScroll()
+  }, [open])
+
+  const disableBodyScroll = () => {
+    document.body.style.overflow = 'hidden'
+  }
+
+  const enableBodyScroll = () => {
+    document.body.style.overflow = 'unset'
+  }
+
   const renderContent = () => {
     return (
-      <S.Container>
+      <S.Container onClick={onClose}>
         <S.ContentContainer>
           <S.CloseButton onClick={onClose}>
             <S.CloseButtonIcon />
