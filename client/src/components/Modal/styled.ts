@@ -14,7 +14,7 @@ export const Container = styled.div`
   width:100vw;
   height:100vh;
   z-index:10;
-  background-color:rgba(0,0,0,0.7);
+  background-color:rgba(0,0,0,0.8);
 `
 
 export const ContentContainer = styled.div`
