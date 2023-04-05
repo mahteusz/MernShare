@@ -18,6 +18,7 @@ export const FileName = styled.span`
   font-size:${props => props.theme.fonts.sizes.large};
   text-align:center;
   max-width:300px;
+  overflow-wrap: break-word;
 `
 
 export const FileSize = styled.span`
