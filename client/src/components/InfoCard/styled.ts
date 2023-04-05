@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import styled from "styled-components";
+import Heading from "../../styled/Heading";
 
 export const Container = styled.main`
   background-color:${props => props.theme.colors.backgroundPrimary};
@@ -15,12 +16,9 @@ export const HeaderContainer = styled.div`
   align-items:center;
 `
 
-export const HeaderTitle = styled.h1`
+export const HeaderTitle = styled(Heading)`
   color:${props => props.theme.colors.secondary};
-  font-family:${props => props.theme.fonts.primary};
-  font-size:${props => props.theme.fonts.sizes.xlarge};
-  font-weight:bold;
-  margin:10px 0;
+  margin:10px;
 `
 
 export const HighlightedText = styled.span`
@@ -47,7 +45,7 @@ export const WarningIcon = styled(Icon).attrs(() => ({
   icon:'material-symbols:warning'
 }))
 `
-  font-size:48px;
+  font-size:32px;
   color:${props => props.theme.colors.secondary};
 `
 

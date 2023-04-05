@@ -1,4 +1,5 @@
 type CustomFile = {
+  _id?:string,
   name: string,
   url: string,
   sizeInBytes: number,
