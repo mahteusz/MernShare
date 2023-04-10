@@ -4,6 +4,7 @@ import * as S from './styled'
 import ContentContainer from '../../styled/ContentContainer'
 import Props from './types'
 import axios from 'axios'
+import fileApi from '../../services/api/File'
 
 const FileCard = ({ file }: Props) => {
 
@@ -17,6 +18,7 @@ const FileCard = ({ file }: Props) => {
       anchor.href = fileUrl;
       anchor.download = file.name
       anchor.click()
+      fileApi.updateFile(file._id!, { ...file, numberOfDownloads: file.numberOfDownloads + 1 })
     }
   }
 
