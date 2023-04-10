@@ -44,6 +44,11 @@ export const Link = styled.span`
   font-family:${props => props.theme.fonts.primary};
   text-align:center;
   padding:10px;
+
+  &:hover {
+    cursor:pointer;
+  }
+
 `
 
 export const CopyIconContainer = styled.div`
