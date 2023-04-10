@@ -6,6 +6,7 @@ import { default as apiRouter } from './routes'
 init()
 const app = express()
 
+app.use(express.json())
 app.use(cors())
 app.use("/api", apiRouter)
 

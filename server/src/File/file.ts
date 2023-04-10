@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { IFile } from "./types";
+import File from "./types";
 
 const FileSchema = new mongoose.Schema({
     name: {
@@ -17,9 +17,13 @@ const FileSchema = new mongoose.Schema({
     sizeInBytes: {
         type: Number,
         required: true
+    },
+    numberOfDownloads: {
+        type: Number,
+        default: 0
     }
 }, {
     timestamps: true
 })
 
-export default mongoose.model<IFile>("File", FileSchema)
+export default mongoose.model<File>("File", FileSchema)
