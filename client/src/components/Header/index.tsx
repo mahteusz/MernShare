@@ -23,9 +23,7 @@ const Logo = () => {
   }
   return (
     <S.LogoContainer onClick={handleClick}>
-      <S.LogoIcon
-        icon={"material-symbols:file-copy-sharp"}
-      />
+      <S.LogoIcon />
       <S.Mern />
       <S.Share />
     </S.LogoContainer>

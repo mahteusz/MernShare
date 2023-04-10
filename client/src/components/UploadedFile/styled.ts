@@ -30,6 +30,7 @@ export const SuccessIcon = styled(Icon).attrs(() => ({
 `
 
 export const LinkContainer = styled.div`
+  margin-top:20px;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -44,6 +45,7 @@ export const Link = styled.span`
   font-family:${props => props.theme.fonts.primary};
   text-align:center;
   padding:10px;
+  word-break:break-all;
 
   &:hover {
     cursor:pointer;

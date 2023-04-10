@@ -49,7 +49,9 @@ export const LogoContainer = styled.div`
   }
 `
 
-export const LogoIcon = styled(Icon)`
+export const LogoIcon = styled(Icon).attrs(() => ({
+  icon:'material-symbols:file-copy-sharp'
+}))`
   font-size:${props => props.theme.fonts.sizes.xlarge};
   color:${props => props.theme.colors.primary};
 `
