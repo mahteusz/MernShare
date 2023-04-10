@@ -8,12 +8,31 @@ import axios from "axios"
 import fileApi from '../../services/api/File'
 import Modal from '../Modal'
 import UploadedFile from '../UploadedFile'
+import { Metadata } from '../../services/api/File/types'
 
 const HomeContent = () => {
   const [fileData, setFileData] = useState<File>()
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
   const [uploadedFileLink, setUploadedFileLink] = useState<string>('')
+  const [metadata, setMetadata] = useState<Metadata>()
+
+  const getMetadata = async () => {
+    try {
+      const response = await fileApi.getMetadata()
+      console.log(response)
+      setMetadata(response)
+    }
+    catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.warn(error.message)
+      }
+    }
+  }
+
+  useState(() => {
+    getMetadata()
+  })
 
   const handleSubmit = async () => {
     if (fileData) {
@@ -29,6 +48,7 @@ const HomeContent = () => {
       const response = await fileApi.createFile(formData)
       setUploadedFileLink(`${window.location.href}file/${response?._id}`)
       setIsModalOpen(true)
+      getMetadata()
     }
     catch (error) {
       if (axios.isAxiosError(error)) {
@@ -43,7 +63,7 @@ const HomeContent = () => {
   return (
     <>
       <Modal
-        children={<UploadedFile link={uploadedFileLink}/>}
+        children={<UploadedFile link={uploadedFileLink} />}
         onClose={() => setIsModalOpen(!isModalOpen)}
         open={isModalOpen}
       />
@@ -70,7 +90,7 @@ const HomeContent = () => {
             <S.InfoCardIcon icon={"material-symbols:drive-folder-upload-sharp"} />
             <S.InfoCardDataContainer>
               <S.InfoCardDataValue>
-                645
+                {metadata?.numberOfSentFiles}
               </S.InfoCardDataValue>
               <S.InfoCardDataTitle>
                 arquivos enviados
@@ -81,10 +101,10 @@ const HomeContent = () => {
             <S.InfoCardIcon icon={"material-symbols:sim-card-download-sharp"} />
             <S.InfoCardDataContainer>
               <S.InfoCardDataValue>
-                248
+                {metadata?.downloadedFiles}
               </S.InfoCardDataValue>
               <S.InfoCardDataTitle>
-                arquivos baixados
+                downloads realizados
               </S.InfoCardDataTitle>
             </S.InfoCardDataContainer>
           </S.InfoCard>
@@ -92,7 +112,12 @@ const HomeContent = () => {
             <S.InfoCardIcon icon={"material-symbols:cloud-done-rounded"} />
             <S.InfoCardDataContainer>
               <S.InfoCardDataValue>
-                942MB
+                {
+                  metadata?.sizeOfSavedData ?
+                    `${(metadata.sizeOfSavedData / (1024 * 1024)).toFixed(2)}MB`
+                    :
+                    0
+                }
               </S.InfoCardDataValue>
               <S.InfoCardDataTitle>
                 salvos na nuvem

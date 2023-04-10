@@ -1,9 +1,16 @@
 type CustomFile = {
-  _id?:string,
+  _id?: string,
   name: string,
   url: string,
   sizeInBytes: number,
-  format:string,
+  format: string,
+  numberOfDownloads:number
 }
 
-export { type CustomFile as default }
+type Metadata = {
+  numberOfSentFiles: number,
+  downloadedFiles: number,
+  sizeOfSavedData: number
+}
+
+export { type CustomFile as default, type Metadata }
