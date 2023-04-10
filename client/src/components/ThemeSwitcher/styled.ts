@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Icon } from "@iconify/react";
+import ToggleSwitchIconProps from './types'
 
 export const Container = styled.div`
   &:hover {
@@ -36,7 +37,7 @@ export const ToggleSwitch = styled.input.attrs({
     }
 `
 
-export const ToggleSwitchIcon = styled(Icon) <{ active: boolean }>`
+export const ToggleSwitchIcon = styled(Icon)<ToggleSwitchIconProps>`
   font-size:${props => props.theme.fonts.sizes.small};
   color:#F5C105;
   position:relative;

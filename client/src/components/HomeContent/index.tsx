@@ -20,7 +20,6 @@ const HomeContent = () => {
   const getMetadata = async () => {
     try {
       const response = await fileApi.getMetadata()
-      console.log(response)
       setMetadata(response)
     }
     catch (error) {

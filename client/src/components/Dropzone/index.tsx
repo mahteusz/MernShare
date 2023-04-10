@@ -32,9 +32,9 @@ const Dropzone = ({ setFileData }: Props) => {
         <input {...getInputProps()} readOnly />
         {
           acceptedFiles.length > 0
-            ? acceptedFiles.map((file: File) => {
+            ? acceptedFiles.map((file: File, index: number) => {
               return (
-                <S.FileInfo>
+                <S.FileInfo key={index}>
                   {`${file.name} - ${(file.size / (1024 * 1024)).toFixed(2)}MB`}
                 </S.FileInfo>
               )

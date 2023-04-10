@@ -8,7 +8,6 @@ const ThemeSwitcher = () => {
   const themeData = useTheme()
 
   useEffect(() => {
-    console.log(themeData.theme.name)
     if (themeData.theme.name === "light") {
       setActive(true)
     }
@@ -25,10 +24,11 @@ const ThemeSwitcher = () => {
     <S.Container onClick={handleToggle}>
       <S.ToggleSwitch
         checked={active}
+        onChange={handleToggle}
       />
       <S.ToggleSwitchIcon
         icon={active ? "ph:sun-fill" : "ph:moon-fill"}
-        active={active}
+        active={active ? active.toString() : undefined}
       />
     </S.Container>
   )
