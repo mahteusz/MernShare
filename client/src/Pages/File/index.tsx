@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react'
 import Header from '../../components/Header'
 import FileCard from '../../components/FileCard'
 import Container from '../../styled/Container'
+import ContentContainer from '../../styled/ContentContainer'
 import { useNavigate, useParams } from 'react-router-dom'
 import fileApi from '../../services/api/File'
 import { CustomFile } from '../../services/api'
+import Spinner from '../../components/Spinner'
 
 const File = () => {
   const [file, setFile] = useState<CustomFile>()
@@ -12,7 +14,7 @@ const File = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    if(id)
+    if (id)
       getFile(id)
   }, [])
 
@@ -38,7 +40,12 @@ const File = () => {
             <FileCard file={file} />
           </Container>
           :
-          <></>
+          <Container>
+            <Header />
+            <ContentContainer>
+              <Spinner />
+            </ContentContainer>
+          </Container>
       }
     </>
   )

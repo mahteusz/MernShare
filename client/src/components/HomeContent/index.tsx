@@ -9,6 +9,7 @@ import fileApi from '../../services/api/File'
 import Modal from '../Modal'
 import UploadedFile from '../UploadedFile'
 import { Metadata } from '../../services/api/File/types'
+import Spinner from '../Spinner'
 
 const HomeContent = () => {
   const [fileData, setFileData] = useState<File>()
@@ -16,8 +17,10 @@ const HomeContent = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
   const [uploadedFileLink, setUploadedFileLink] = useState<string>('')
   const [metadata, setMetadata] = useState<Metadata>()
+  const [loadingMetadata, setLoadingMetadata] = useState<boolean>(true)
 
   const getMetadata = async () => {
+    setLoadingMetadata(true)
     try {
       const response = await fileApi.getMetadata()
       setMetadata(response)
@@ -26,6 +29,9 @@ const HomeContent = () => {
       if (axios.isAxiosError(error)) {
         console.warn(error.message)
       }
+    }
+    finally {
+      setLoadingMetadata(false)
     }
   }
 
@@ -89,7 +95,12 @@ const HomeContent = () => {
             <S.InfoCardIcon icon={"material-symbols:drive-folder-upload-sharp"} />
             <S.InfoCardDataContainer>
               <S.InfoCardDataValue>
-                {metadata?.numberOfSentFiles}
+                {
+                  loadingMetadata ?
+                    <Spinner />
+                    :
+                    metadata?.numberOfSentFiles
+                }
               </S.InfoCardDataValue>
               <S.InfoCardDataTitle>
                 arquivos enviados
@@ -100,7 +111,12 @@ const HomeContent = () => {
             <S.InfoCardIcon icon={"material-symbols:sim-card-download-sharp"} />
             <S.InfoCardDataContainer>
               <S.InfoCardDataValue>
-                {metadata?.downloadedFiles}
+                {
+                  loadingMetadata ?
+                    <Spinner />
+                    :
+                    metadata?.downloadedFiles
+                }
               </S.InfoCardDataValue>
               <S.InfoCardDataTitle>
                 downloads realizados
@@ -112,10 +128,12 @@ const HomeContent = () => {
             <S.InfoCardDataContainer>
               <S.InfoCardDataValue>
                 {
-                  metadata?.sizeOfSavedData ?
-                    `${(metadata.sizeOfSavedData / (1024 * 1024)).toFixed(2)}MB`
-                    :
-                    0
+                  loadingMetadata ?
+                    <Spinner /> :
+                    metadata?.sizeOfSavedData ?
+                      `${(metadata.sizeOfSavedData / (1024 * 1024)).toFixed(2)}MB`
+                      :
+                      0
                 }
               </S.InfoCardDataValue>
               <S.InfoCardDataTitle>
